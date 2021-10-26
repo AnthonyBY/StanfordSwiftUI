@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92AC7E1F271F6A1900479308 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC7E1E271F6A1900479308 /* MemoryGame.swift */; };
+		92AC7E21271F6F1A00479308 /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AC7E20271F6F1A00479308 /* EmojiMemoryGame.swift */; };
 		92EFB1082717124F00089BE8 /* StanfordSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EFB1072717124F00089BE8 /* StanfordSwiftUIApp.swift */; };
 		92EFB10A2717125000089BE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EFB1092717125000089BE8 /* ContentView.swift */; };
 		92EFB10C2717125200089BE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92EFB10B2717125200089BE8 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92AC7E1E271F6A1900479308 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
+		92AC7E20271F6F1A00479308 /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		92EFB1042717124F00089BE8 /* StanfordSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StanfordSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92EFB1072717124F00089BE8 /* StanfordSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StanfordSwiftUIApp.swift; sourceTree = "<group>"; };
 		92EFB1092717125000089BE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +58,8 @@
 			children = (
 				92EFB1072717124F00089BE8 /* StanfordSwiftUIApp.swift */,
 				92EFB1092717125000089BE8 /* ContentView.swift */,
+				92AC7E1E271F6A1900479308 /* MemoryGame.swift */,
+				92AC7E20271F6F1A00479308 /* EmojiMemoryGame.swift */,
 				92EFB10B2717125200089BE8 /* Assets.xcassets */,
 				92EFB1102717125200089BE8 /* Info.plist */,
 				92EFB10D2717125200089BE8 /* Preview Content */,
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AC7E1F271F6A1900479308 /* MemoryGame.swift in Sources */,
 				92EFB10A2717125000089BE8 /* ContentView.swift in Sources */,
 				92EFB1082717124F00089BE8 /* StanfordSwiftUIApp.swift in Sources */,
+				92AC7E21271F6F1A00479308 /* EmojiMemoryGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

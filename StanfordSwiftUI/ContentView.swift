@@ -8,59 +8,62 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis = ["✈️", "⚠️", "☀️", "🐮", "⚠️", "☀️", "🐮", "⚠️", "☀️", "🐮"]
-    @State var emojiCount = 3
+    var carEmoji = ["🚗", "🚕", "🚙", "🚌", "🚎", "🚑", "🏎", "🚓"]
+    var heartEmoji = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼"]
+    static let emojis = ["✈️", "⚠️", "☀️", "🐮", "💕", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"]
+    @State var emojiCount = 7
+    @State var currentEmoji = emojis
     
     var body: some View {
         VStack {
-            HStack {
+            Text("Memorize!")
+            ScrollView {
                 LazyVGrid(columns: [GridItem(), GridItem(), GridItem()], content: {
-                    ForEach(emojis[0...emojiCount], id: \.self, content: { emoji in
+                    ForEach(currentEmoji[0...emojiCount], id: \.self, content: { emoji in
                         CardView(content: emoji).aspectRatio(2/3, contentMode: .fit)
                     })
                 })
+                    .foregroundColor(.red)
             }
             HStack {
-                remove
+                theme1
                 Spacer()
-                add
+                theme2
+                Spacer()
+                theme3
             }
-            .foregroundColor(.yellow)
         }
         .padding(.horizontal)
-        .foregroundColor(.red)
     }
     
-    var remove: some View {
-        Button(action: {
-            emojiCount -= 1
-        }, label: {
-            VStack {
-                Image(systemName: "minus.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+    var theme1: some View {
+        Button {
+            currentEmoji = carEmoji
+        } label: {
+                Image(systemName: "car")
                     .foregroundColor(Color.yellow)
-                    .padding(.leading)
-                    .frame(width: 50.0, height: 50.0)
-            }
-        })
+                    .frame(width: 70, height: 70)
+        }
     }
     
-    var add: some View {
-        Button(action: {
-            emojiCount += 1
-        }, label: {
-            VStack {
-                Image(systemName: "plus.circle")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+    var theme2: some View {
+        Button {
+            currentEmoji = heartEmoji
+        } label: {
+                Image(systemName: "heart")
                     .foregroundColor(Color.yellow)
-                    .padding(.leading)
-                    .frame(width: 50.0, height: 50.0)
-            }
-            .frame(width: 100.0, height: 100.0)
-        })
-        
+                    .frame(width: 70, height: 70)
+        }
+    }
+    
+    var theme3: some View {
+        Button {
+            print("Image tapped!")
+        } label: {
+                Image(systemName: "person")
+                    .foregroundColor(Color.yellow)
+                    .frame(width: 70, height: 70)
+        }
     }
 }
 
@@ -73,7 +76,7 @@ struct CardView: View {
             if isFaceUp {
                 shape.fill()
                     .foregroundColor(.white)
-                shape.stroke(lineWidth: 3).padding(.all, 0.0)
+                shape.strokeBorder(lineWidth: 4, antialiased: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/).padding(.all, 1)
                 Text(content)
             } else {
                 shape.fill()
