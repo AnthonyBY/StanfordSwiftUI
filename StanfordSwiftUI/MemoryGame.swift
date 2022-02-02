@@ -13,10 +13,19 @@ struct MemoryGame<CardContent> {
     func choose(_card: Card) {
         
     }
+
+    init(numberOfPairsOfCards: Int, createCardContent: (Int) -> CardContent) {
+        cards = Array<Card>()
+        for index in 0..<numberOfPairsOfCards {
+            let content: CardContent = createCardContent(index)
+            cards.append(Card(content: content))
+            cards.append(Card(content: content))
+        }
+    }
     
     struct Card {
-        var isFaceUp: Bool
-        var isMatched: Bool
+        var isFaceUp: Bool = false
+        var isMatched: Bool = false
         var content: CardContent
     }
 }
