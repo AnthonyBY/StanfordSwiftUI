@@ -9,17 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var carEmoji = ["🚗", "🚕", "🚙", "🚌", "🚎", "🚑", "🏎", "🚓"]
-    var heartEmoji = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼"]
-    static let emojis = ["✈️", "⚠️", "☀️", "🐮", "💕", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14"]
+    var animalEmoji = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐣", "🦉"]
+    static let emoji = ["✈️", "⚠️", "☀️", "🩴", "💕", "⛑", "🧤", "🧦", "🧢"]
+
     @State var emojiCount = 7
-    @State var currentEmoji = emojis
+    @State var currentEmoji = emoji
     
     var body: some View {
         VStack {
-            Text("Memorize!")
+            Text("Memorize!").font(.system(size: 36.0))
             ScrollView {
                 LazyVGrid(columns: [GridItem(), GridItem(), GridItem()], content: {
-                    ForEach(currentEmoji[0...emojiCount], id: \.self, content: { emoji in
+                    ForEach(currentEmoji[0..<emojiCount], id: \.self, content: { emoji in
                         CardView(content: emoji).aspectRatio(2/3, contentMode: .fit)
                     })
                 })
@@ -37,32 +38,50 @@ struct ContentView: View {
     }
     
     var theme1: some View {
-        Button {
-            currentEmoji = carEmoji
-        } label: {
+        VStack {
+            Button {
+                currentEmoji = carEmoji.shuffled()
+                emojiCount = carEmoji.count
+            } label: {
                 Image(systemName: "car")
                     .foregroundColor(Color.yellow)
-                    .frame(width: 70, height: 70)
+                    .frame(width: 50, height: 30)
+            }
+            Text("Vehicle")
+                .font(.system(size: 12.0))
+                .foregroundColor(.yellow)
         }
     }
     
     var theme2: some View {
-        Button {
-            currentEmoji = heartEmoji
-        } label: {
+        VStack {
+            Button {
+                currentEmoji = animalEmoji.shuffled()
+                emojiCount = animalEmoji.count
+            } label: {
                 Image(systemName: "heart")
                     .foregroundColor(Color.yellow)
-                    .frame(width: 70, height: 70)
+                    .frame(width: 50, height: 30)
+            }
+            Text("Heart")
+                .font(.system(size: 12.0))
+                .foregroundColor(.yellow)
         }
     }
     
     var theme3: some View {
-        Button {
-            print("Image tapped!")
-        } label: {
-                Image(systemName: "person")
-                    .foregroundColor(Color.yellow)
-                    .frame(width: 70, height: 70)
+        VStack {
+            Button {
+                currentEmoji = ContentView.emoji.shuffled()
+                emojiCount = ContentView.emoji.count
+            } label: {
+                Image(systemName: "sun.max")
+                    .foregroundColor(.yellow)
+                    .frame(width: 50, height: 30)
+            }
+            Text("Emojis")
+                .font(.system(size: 12.0))
+                .foregroundColor(.yellow)
         }
     }
 }
@@ -92,7 +111,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-                .preferredColorScheme(.dark)
         }
     }
 }
